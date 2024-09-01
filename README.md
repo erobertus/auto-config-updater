@@ -23,10 +23,40 @@ To install the script, follow these steps:
 
    ```bash
    git clone https://github.com/erobertus/auto-config-updater.git
-   cd your-repository-name
+   cd auto-config-updater
    ```
 
-2. **Run the install script:**
+2. **Edit `install.sh` and `uninstall.sh` if Cron Job setup is required:**
+
+   - Open `install.sh` and locate the cron job section:
+
+     ```bash
+     # echo "Setting up a sample cron job to run the script daily at midnight..."
+     # (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'") | sudo crontab -
+     ```
+
+   - Edit the cron job line with your actual parameters and uncomment it if you want to automatically set up the cron job during installation:
+
+     ```bash
+     echo "Setting up a sample cron job to run the script daily at midnight..."
+     (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'") | sudo crontab -
+     ```
+
+   - Similarly, open `uninstall.sh` and locate the cron job removal section:
+
+     ```bash
+     # echo "Removing sample cron job..."
+     # sudo crontab -l | grep -v "/usr/local/bin/update_config.sh" | sudo crontab -
+     ```
+
+   - Uncomment the lines if you want to automatically remove the cron job during uninstallation:
+
+     ```bash
+     echo "Removing sample cron job..."
+     sudo crontab -l | grep -v "/usr/local/bin/update_config.sh" | sudo crontab -
+     ```
+
+3. **Run the install script:**
 
    The `install.sh` script will copy `update_config.sh` to `/usr/local/bin` and set the correct permissions.
 
@@ -105,4 +135,4 @@ Contributions are welcome! Please submit a pull request or open an issue to disc
 
 ## Contact
 
-For any questions or issues, please contact [Eugene Robertus](mailto:erobertus@indexdynamic.com).
+For any questions or issues, please contact Eugene Robertus at [erobertus@indexdynamic.com](mailto:erobertus@indexdynamic.com).
