@@ -6,7 +6,7 @@ This project contains a shell script, `update_config.sh`, that automates the mod
 
 - Modify any configuration file by specifying the file path, variable name, and values.
 - Apply changes only within a specific date range.
-- Execute a command (e.g., `csf -ra`) if the configuration variable's value has been changed.
+- Execute a command (e.g., `/usr/sbin/csf -ra`) if the configuration variable's value has been changed.
 - Error handling to ensure the configuration file exists before making changes.
 
 ## Prerequisites
