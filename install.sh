@@ -17,6 +17,6 @@ sudo chmod +x "$SCRIPT_PATH"
 
 # Optional: Set up a sample cron job (commented out by default)
 # echo "Setting up a sample cron job to run the script daily at midnight..."
-# (sudo crontab -l ; echo "0 0 * * * $SCRIPT_PATH /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'") | sudo crontab -
+# (sudo crontab -l ; echo "0 0 * * * $SCRIPT_PATH /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' '/usr/sbin/csf -ra'") | sudo crontab -
 
 echo "Installation complete. You can now run the script using '$SCRIPT_NAME' from anywhere."
