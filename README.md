@@ -32,14 +32,14 @@ To install the script, follow these steps:
 
      ```bash
      # echo "Setting up a sample cron job to run the script daily at midnight..."
-     # (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'") | sudo crontab -
+     # (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' '/usr/sbin/csf -ra'") | sudo crontab -
      ```
 
    - Edit the cron job line with your actual parameters and uncomment it if you want to automatically set up the cron job during installation:
 
      ```bash
      echo "Setting up a sample cron job to run the script daily at midnight..."
-     (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'") | sudo crontab -
+     (sudo crontab -l ; echo "0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' '/usr/sbin/csf -ra'") | sudo crontab -
      ```
 
    - Similarly, open `uninstall.sh` and locate the cron job removal section:
@@ -79,14 +79,14 @@ The script accepts the following parameters:
 4. **end_value**: The value to assign when the current date is outside the start and end dates (e.g., `CA`).
 5. **start_date**: The date when the start value should be used (inclusive).
 6. **end_date**: The date after which the end value should be used (exclusive).
-7. **command**: The command to execute if the configuration value changes (e.g., `csf -ra`).
+7. **command**: The command to execute if the configuration value changes (e.g., `/usr/sbin/csf -ra`).
 
 ### Example
 
 Run the script with the necessary parameters:
 
 ```bash
-update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
+update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' '/usr/sbin/csf -ra'
 ```
 
 ### Automate with Cron
@@ -102,7 +102,7 @@ To automate the script execution, set up a cron job. For example, to run the scr
 2. Add the following line:
 
    ```bash
-   0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
+   0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' '/usr/sbin/csf -ra'
    ```
 
 ## Uninstallation
