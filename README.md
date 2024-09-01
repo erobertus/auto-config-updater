@@ -15,6 +15,28 @@ This project contains a shell script, `update_config.sh`, that automates the mod
 - Bash shell (typically available by default).
 - Permissions to read and write the configuration file and execute the specified command.
 
+## Installation
+
+To install the script, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/your-repository-name.git
+   cd your-repository-name
+   ```
+
+2. **Run the install script:**
+
+   The `install.sh` script will copy `update_config.sh` to `/usr/local/bin` and set the correct permissions.
+
+   ```bash
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+   After installation, you can run `update_config.sh` from anywhere on your system.
+
 ## Usage
 
 ### Script Parameters
@@ -34,7 +56,7 @@ The script accepts the following parameters:
 Run the script with the necessary parameters:
 
 ```bash
-./update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
+update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
 ```
 
 ### Automate with Cron
@@ -50,10 +72,23 @@ To automate the script execution, set up a cron job. For example, to run the scr
 2. Add the following line:
 
    ```bash
-   0 0 * * * /path/to/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
+   0 0 * * * /usr/local/bin/update_config.sh /etc/csf/csf.conf CC_ALLOW_FILTER 'CA,IT' 'CA' '2024-09-18' '2024-10-07' 'csf -ra'
    ```
 
-Replace `/path/to/update_config.sh` with the actual path to the script.
+## Uninstallation
+
+To uninstall the script, run the `uninstall.sh` script:
+
+1. **Run the uninstall script:**
+
+   The `uninstall.sh` script will remove `update_config.sh` from `/usr/local/bin`.
+
+   ```bash
+   chmod +x uninstall.sh
+   ./uninstall.sh
+   ```
+
+   This will remove the script from your system, and you will no longer be able to run `update_config.sh` from the command line.
 
 ## Error Handling
 
