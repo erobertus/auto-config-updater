@@ -22,7 +22,7 @@ To install the script, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repository-name.git
+   git clone https://github.com/erobertus/auto-config-updater.git
    cd your-repository-name
    ```
 
